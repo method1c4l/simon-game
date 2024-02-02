@@ -1,0 +1,35 @@
+#board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    height: 400px;
+    width: 400px;
+    background-color: #000;
+    border-radius: 13px;
+    padding: 3px;
+    margin: auto;
+}
+
+#button-green {
+    background-color: #2e8b57;
+}
+
+#button-red {
+    background-color: #dc143c;
+}
+
+#button-yellow {
+    background-color: #f0e68c;
+}
+
+#button-blue {
+    background-color: #4169e1;
+}
+
+.shape {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+}
