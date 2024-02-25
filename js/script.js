@@ -7,6 +7,8 @@ const $startButton = document.querySelector('#start');
 $startButton.onclick = startGame;
 
 
+disablePlayerInput();
+
 function startGame() {
     resetStatus();
 
@@ -30,6 +32,8 @@ function playRound() {
 
 
 function machinePlays() {
+    disablePlayerInput();
+
     const newColor = selectRandomColor();
 
     machineSequence.push(newColor);
@@ -46,19 +50,6 @@ function machinePlays() {
     })
 }
 
-function playerPlays() {
-    const PLAYER_TURN_DELAY = (machineSequence.length + 1) * 1000;
-
-    setTimeout(function () {
-        const $buttons = document.querySelectorAll('#board button');
-
-        $buttons.forEach(function (button) {
-            button.onclick = handlePlayerInput;
-        })
-    }, PLAYER_TURN_DELAY);
-}
-
-
 function selectRandomColor() {
     const $buttons = document.querySelectorAll('#board button');
 
@@ -70,7 +61,6 @@ function selectRandomColor() {
     return color;
 }
 
-
 function highlight(button) {
     button.style.opacity = 1;
 
@@ -79,6 +69,14 @@ function highlight(button) {
     }, 500);
 }
 
+
+function playerPlays() {
+    const PLAYER_TURN_DELAY = (machineSequence.length + 1) * 1000;
+
+    setTimeout(function () {
+        enablePlayerInput();
+    }, PLAYER_TURN_DELAY);
+}
 
 function handlePlayerInput(event) {
     const button = event.target;
@@ -98,6 +96,25 @@ function handlePlayerInput(event) {
     }
 
     if (playerSequence.length === machineSequence.length) {
+        disablePlayerInput();
+
         setTimeout(playRound, 1000);
     }
+}
+
+function disablePlayerInput() {
+    const $buttons = document.querySelectorAll('#board button');
+
+    $buttons.forEach(function (button) {
+        button.onclick = function () {
+        }
+    })
+}
+
+function enablePlayerInput() {
+    const $buttons = document.querySelectorAll('#board button');
+
+    $buttons.forEach(function (button) {
+        button.onclick = handlePlayerInput;
+    })
 }
