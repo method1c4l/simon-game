@@ -10,6 +10,8 @@ $startButton.onclick = startGame;
 disablePlayerInput();
 
 function startGame() {
+    handleBtnVisibility();
+
     resetStatus();
 
     playRound();
@@ -92,6 +94,8 @@ function handlePlayerInput(event) {
     if (color !== machineColor) {
         alert('YOU LOSE');
 
+        handleBtnVisibility();
+
         return;
     }
 
@@ -117,4 +121,9 @@ function enablePlayerInput() {
     $buttons.forEach(function (button) {
         button.onclick = handlePlayerInput;
     })
+}
+
+
+function handleBtnVisibility() {
+    $startButton.classList.toggle('hidden');
 }
