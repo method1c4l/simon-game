@@ -94,6 +94,8 @@ function handlePlayerInput(event) {
     if (color !== machineColor) {
         alert('YOU LOSE');
 
+        disablePlayerInput();
+
         handleBtnVisibility();
 
         return;
