@@ -6,20 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Game</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
-        <div class="flex-container">
-            <button id="start" type="button">Start</button>
+    <main class="mt-4">
+        <div class="container g-0 d-flex justify-content-center">
+            <button id="start" class="btn btn-dark" type="button">Start</button>
         </div>
 
-        <section id="board">
-            <button id="green" class="shape" type="button"></button>
-            <button id="red" class="shape" type="button"></button>
-            <button id="yellow" class="shape" type="button"></button>
-            <button id="blue" class="shape" type="button"></button>
+        <section id="board" class="container g-0">
+            <div class="row g-0 h-50">
+                <div class="col-sm p-1">
+                    <button id="green" class="shape w-100 h-100" type="button"></button>
+                </div>
+
+                <div class="col-sm p-1">
+                    <button id="red" class="shape w-100 h-100" type="button"></button>
+                </div>
+            </div>
+
+            <div class="row g-0 h-50">
+                <div class="col-sm p-1">
+                    <button id="yellow" class="shape w-100 h-100" type="button"></button>
+                </div>
+
+                <div class="col-sm p-1">
+                    <button id="blue" class="shape w-100 h-100" type="button"></button>
+                </div>
+            </div>
         </section>
     </main>
 
