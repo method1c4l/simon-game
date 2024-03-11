@@ -1,3 +1,9 @@
+#status-bar {
+    max-width: 575px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
 #start {
     text-transform: uppercase;
     font-weight: bold;

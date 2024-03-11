@@ -7,7 +7,10 @@ const $startButton = document.querySelector('#start');
 $startButton.onclick = startGame;
 
 
+updateStatus('Press START to begin the game!');
+
 disablePlayerInput();
+
 
 function startGame() {
     handleBtnVisibility();
@@ -34,6 +37,8 @@ function playRound() {
 
 
 function machinePlays() {
+    updateStatus('Pay attention...');
+
     disablePlayerInput();
 
     const newColor = selectRandomColor();
@@ -76,6 +81,8 @@ function playerPlays() {
     const PLAYER_TURN_DELAY = (machineSequence.length + 1) * 1000;
 
     setTimeout(function () {
+        updateStatus('Your turn!');
+
         enablePlayerInput();
     }, PLAYER_TURN_DELAY);
 }
@@ -92,11 +99,7 @@ function handlePlayerInput(event) {
     const machineColor = machineSequence[playerSequence.length - 1];
 
     if (color !== machineColor) {
-        alert('YOU LOSE');
-
-        disablePlayerInput();
-
-        handleBtnVisibility();
+        loseTheGame();
 
         return;
     }
@@ -128,4 +131,31 @@ function enablePlayerInput() {
 
 function handleBtnVisibility() {
     $startButton.classList.toggle('hidden');
+}
+
+
+function updateStatus(message, lose = false) {
+    const $status = document.querySelector('#status');
+    const statusMessage = $status.querySelector('p');
+
+    statusMessage.textContent = message;
+
+    if (lose) {
+        $status.classList.remove('alert-success');
+
+        $status.classList.add('alert-danger');
+    } else {
+        $status.classList.remove('alert-danger');
+
+        $status.classList.add('alert-success');
+    }
+}
+
+
+function loseTheGame() {
+    updateStatus('You lose! Press START to retry!', true);
+
+    disablePlayerInput();
+
+    handleBtnVisibility();
 }
