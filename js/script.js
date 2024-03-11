@@ -1,6 +1,8 @@
 let machineSequence = [];
 let playerSequence = [];
 
+let round = 0;
+
 
 const $startButton = document.querySelector('#start');
 
@@ -25,6 +27,8 @@ function resetStatus() {
     machineSequence = [];
 
     playerSequence = [];
+
+    round = 0;
 }
 
 function playRound() {
@@ -33,6 +37,10 @@ function playRound() {
     playerPlays();
 
     playerSequence = [];
+
+    round += 1;
+
+    updateRound(round);
 }
 
 
@@ -151,9 +159,17 @@ function updateStatus(message, lose = false) {
     }
 }
 
+function updateRound(round) {
+    const $round = document.querySelector('#round');
+
+    $round.textContent = round;
+}
+
 
 function loseTheGame() {
     updateStatus('You lose! Press START to retry!', true);
+
+    updateRound('-');
 
     disablePlayerInput();
 
