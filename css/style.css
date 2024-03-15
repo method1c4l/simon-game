@@ -1,7 +1,20 @@
+@font-face {
+    font-family: 'Zekton';
+    src: url(/assets/fonts/zekton-rg.otf);
+}
+
+@font-face {
+    font-family: 'Neuropolitical';
+    src: url(/assets/fonts/neuropolitical-rg.otf);
+}
+
 body {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Zekton';
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #status-bar {
@@ -11,8 +24,8 @@ body {
 }
 
 #start {
+    font-family: 'Neuropolitical';
     text-transform: uppercase;
-    font-weight: bold;
     border: none;
     border-radius: 13px 13px 0 0;
     transition: opacity 350ms;
