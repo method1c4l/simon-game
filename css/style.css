@@ -49,18 +49,22 @@ body {
 
 #green {
     background-color: #2e8b57;
+    box-shadow: inset 0 0 15px #17452b;
 }
 
 #red {
     background-color: #dc143c;
+    box-shadow: inset 0 0 15px #6e0a1e;
 }
 
 #yellow {
     background-color: #f0e68c;
+    box-shadow: inset 0 0 15px #787346;
 }
 
 #blue {
     background-color: #4169e1;
+    box-shadow: inset 0 0 15px #203470;
 }
 
 .shape {
